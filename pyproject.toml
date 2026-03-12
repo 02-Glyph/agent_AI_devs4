@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "white-label-agent"
+version = "0.1.0"
+description = "Minimal white-label AI agent skeleton in pure Python"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "python-dotenv>=1.0.1",
+  "openai>=1.75.0",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.34.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.setuptools.packages.find]
+where = ["."]
