@@ -12,7 +12,7 @@ core/types.py
 llm/__init__.py
 llm/mock_client.py
 llm/openai_client.py
-llm/openrouter_clinet.py
+llm/openrouter_client.py
 tests/test_agent.py
 tests/test_calculator.py
 tools/__init__.py
