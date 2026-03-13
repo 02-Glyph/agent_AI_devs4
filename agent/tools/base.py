@@ -4,7 +4,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from typing import Any
 
-from core.types import ToolCall, ToolResult, ToolSpec
+from agent.core.types import ToolCall, ToolResult, ToolSpec
 
 
 class BaseTool(ABC):

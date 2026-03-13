@@ -1,8 +1,8 @@
 # core/loop.py
 from __future__ import annotations
 
-from core.types import AgentResponse, AgentState, LLMClient, Message
-from tools.registry import ToolRegistry
+from agent.core.types import AgentResponse, AgentState, LLMClient, Message
+from agent.tools.registry import ToolRegistry
 
 
 async def run_loop(

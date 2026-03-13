@@ -1,8 +1,8 @@
 # tests/test_calculator.py
 import pytest
 
-from core.types import ToolCall
-from tools.calculator import CalculatorTool
+from agent.core.types import ToolCall
+from agent.tools.calculator import CalculatorTool
 
 
 @pytest.fixture

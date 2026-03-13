@@ -4,7 +4,7 @@ import json
 
 from openai import AsyncOpenAI
 
-from core.types import AgentResponse, Message, ToolCall, ToolSpec
+from agent.core.types import AgentResponse, Message, ToolCall, ToolSpec
 
 
 class OpenRouterClient:
@@ -30,6 +30,15 @@ class OpenRouterClient:
         self,
         messages: list[Message],
         tools: list[ToolSpec] | None = None,
+        # ← WSZYSTKIE główne parametry OpenRouter/OpenAI:
+        temperature: float | None = None,        # 0.0-2.0, domyślnie 1.0
+        max_tokens: int | None = None,           # max output tokens
+        top_p: float | None = None,              # 0.0-1.0, domyślnie 1.0
+        frequency_penalty: float | None = None,  # -2.0-2.0, domyślnie 0.0
+        presence_penalty: float | None = None,   # -2.0-2.0, domyślnie 0.0
+        top_k: int | None = None,                # model-specific
+        tool_choice: str | None = None,          # "auto", "none", "required"
+        stream: bool = False,
     ) -> AgentResponse:
         api_messages = []
 
@@ -68,12 +77,30 @@ class OpenRouterClient:
                     }
                 )
 
-        response = await self.client.chat.completions.create(
-            model=self.model,
-            messages=api_messages,
-            tools=api_tools or None,
-            tool_choice="auto" if api_tools else None,
-        )
+        # ← Jawny payload z WSZYSTKIMI parametrami
+        params = {
+            "model": self.model,
+            "messages": api_messages,
+            "tools": api_tools or None,
+            "tool_choice": tool_choice or ("auto" if api_tools else None),
+            "stream": stream,
+        }
+
+        # Dodaj parametry modelu jeśli podane
+        if temperature is not None:
+            params["temperature"] = temperature
+        if max_tokens is not None:
+            params["max_tokens"] = max_tokens
+        if top_p is not None:
+            params["top_p"] = top_p
+        if frequency_penalty is not None:
+            params["frequency_penalty"] = frequency_penalty
+        if presence_penalty is not None:
+            params["presence_penalty"] = presence_penalty
+        if top_k is not None:
+            params["top_k"] = top_k
+
+        response = await self.client.chat.completions.create(**params)
 
         msg = response.choices[0].message
 

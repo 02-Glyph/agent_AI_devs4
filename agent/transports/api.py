@@ -4,11 +4,11 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
-from agents.assistant import AssistantAgent
-from app.config import get_settings
-from llm import get_llm_client
-from tools.calculator import CalculatorTool
-from tools.registry import ToolRegistry
+from agent.agents.assistant import AssistantAgent
+from agent.app.config import get_settings
+from agent.llm import get_llm_client
+from agent.tools.calculator import CalculatorTool
+from agent.tools.registry import ToolRegistry
 
 
 # --- setup ---

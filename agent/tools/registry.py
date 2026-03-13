@@ -1,8 +1,8 @@
 # tools/registry.py
 from __future__ import annotations
 
-from core.types import ToolCall, ToolResult, ToolSpec
-from tools.base import BaseTool
+from agent.core.types import ToolCall, ToolResult, ToolSpec
+from agent.tools.base import BaseTool
 
 
 class ToolRegistry:

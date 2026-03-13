@@ -12,8 +12,8 @@ Planned responsibilities:
 """
 from __future__ import annotations
 
-from agents.assistant import AssistantAgent
-from core.types import AgentResponse, AgentState
+from agent.agents.assistant import AssistantAgent
+from agent.core.types import AgentResponse, AgentState
 
 
 class Orchestrator:
