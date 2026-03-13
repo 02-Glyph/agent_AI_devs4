@@ -2,9 +2,9 @@
 import pytest
 from unittest.mock import AsyncMock
 
-from agents.assistant import AssistantAgent
-from core.types import AgentResponse, AgentState, Message
-from tools.registry import ToolRegistry
+from agent.agents.assistant import AssistantAgent
+from agent.core.types import AgentResponse, AgentState, Message
+from agent.tools.registry import ToolRegistry
 
 
 @pytest.fixture

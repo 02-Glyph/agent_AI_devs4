@@ -1,5 +1,14 @@
-.venv/
-__pycache__/
-*.pyc
-.pytest_cache/
+# Python (agent + exercises)
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyc
+
+# Node / TS (courses)
+**/node_modules/
+**/dist/
+**/build/
+**/.next/
+
+# Env
 .env

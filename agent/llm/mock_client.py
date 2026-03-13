@@ -1,6 +1,6 @@
 import re
 
-from core.types import AgentResponse, Message, ToolCall, ToolSpec
+from agent.core.types import AgentResponse, Message, ToolCall, ToolSpec
 
 
 class MockLLMClient:

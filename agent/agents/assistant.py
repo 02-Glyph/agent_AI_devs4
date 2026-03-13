@@ -1,9 +1,9 @@
 # agents/assistant.py
 from __future__ import annotations
 
-from core.loop import run_loop
-from core.types import AgentResponse, AgentState, LLMClient, Message
-from tools.registry import ToolRegistry
+from agent.core.loop import run_loop
+from agent.core.types import AgentResponse, AgentState, LLMClient, Message
+from agent.tools.registry import ToolRegistry
 
 
 class AssistantAgent:

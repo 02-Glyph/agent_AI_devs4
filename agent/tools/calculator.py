@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from tools.base import BaseTool
+from agent.tools.base import BaseTool
 
 
 class CalculatorTool(BaseTool):

@@ -1,7 +1,8 @@
 # llm/__init__.py
-from app.config import Settings, get_settings
-from llm.openai_client import OpenAIClient
-from llm.openrouter_client import OpenRouterClient
+from agent.app.config import Settings, get_settings
+from agent.llm.openai_client import OpenAIClient
+from agent.llm.openrouter_client import OpenRouterClient
+
 
 
 def get_llm_client(settings: Settings | None = None) -> OpenAIClient | OpenRouterClient:
